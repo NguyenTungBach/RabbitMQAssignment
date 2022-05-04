@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<RabbitMQAssignment.Models.Article>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ClientIndex";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>W3.CSS Template</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <style>
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Karma", sans-serif
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 20px
+        }
+    </style>
+</head>
+<body>
+    <br/>
+    @using (Html.BeginForm("ClientIndex", "Articles", FormMethod.Get))
+    {
+        <p>
+            Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" />
+        </p>
+
+        <div style="margin-bottom:10px">
+            Tìm theo danh mục
+            <select name="categoryId" id="categoryId">
+                <option value=-1>Chọn danh mục</option>
+                @foreach (var category in ViewBag.ListCategory)
+                {
+                    if (category.Id == ViewBag.CurrentCategory)
+                    {
+                        <option value=@category.Id selected>@category.Name</option>
+                    }
+                    else
+                    {
+                        <option value=@category.Id>@category.Name</option>
+                    }
+                }
+            </select>
+            @*<input type="submit" value="Search" id="findCategory" style="display:none" />*@
+        </div>
+    }
+
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+        <!-- First Photo Grid-->
+        <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+            @foreach (var item in Model)
+            {
+                <div class="w3-quarter">
+                    <img src="@item.Thumbnail " style="width:100%">
+                    <h3><a href="@item.Url">@item.Title</a></h3>
+                    <p>@item.Description</p>
+                    <button type="button">@Html.ActionLink("Chi tiết bài viết", "ClientDetail", new { id = item.Id })</button>
+                </div>
+            }
+        </div>
+        <!-- End page content -->
+    </div>
+
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("ClientIndex",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, categoryId = ViewBag.CurrentCategory }))
+
+</body>
+</html>

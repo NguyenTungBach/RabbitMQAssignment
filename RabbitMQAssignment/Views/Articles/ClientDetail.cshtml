@@ -1,0 +1,24 @@
+﻿@model RabbitMQAssignment.Models.Article
+
+@{
+    ViewBag.Title = "ClientDetail";
+}
+
+<h2>ClientDetail</h2>
+
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <div>
+            @Html.Raw(@Model.Content)
+        </div>
+        
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Quay về bài viết", "ClientIndex")
+</p>

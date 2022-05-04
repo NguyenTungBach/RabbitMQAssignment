@@ -1,0 +1,75 @@
+﻿@model IEnumerable<RabbitMQAssignment.Models.Source>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectorUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectorTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectorDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectorContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectorThumbnail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectorAuthor)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectorUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectorTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectorDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectorContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectorThumbnail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectorAuthor)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
