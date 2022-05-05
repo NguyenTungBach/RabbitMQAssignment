@@ -27,12 +27,12 @@ namespace RabbitMQReceived.Service
                 HtmlDocument doc = web.Load(eventQueue.Url);
                 var title = doc.QuerySelector(eventQueue.SelectorTitle).InnerText;
                 var description = doc.QuerySelector(eventQueue.SelectorDescrition).InnerText;
-                var imageNode = doc.QuerySelector(eventQueue.SelectorThumbnail);
+                var imageNode = doc.QuerySelector(eventQueue.SelectorThumbnail)?.Attributes["data-src"].Value;
                 var author = doc.QuerySelector(eventQueue.SelectorAuthor)?.InnerText;
                 string thumbnail = "";
                 if (imageNode != null)
                 {
-                    thumbnail = imageNode.Attributes["data-src"].Value;
+                    thumbnail = imageNode;
                 }
                 else
                 {

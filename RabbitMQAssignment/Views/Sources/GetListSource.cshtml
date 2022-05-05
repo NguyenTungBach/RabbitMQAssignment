@@ -1,0 +1,25 @@
+﻿@model IEnumerable<RabbitMQAssignment.Models.SourceCheck>
+
+@{
+    ViewBag.Title = "CheckSource";
+}
+
+<h2>CheckSource</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+        </tr>
+    }
+
+</table>

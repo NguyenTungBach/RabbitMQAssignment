@@ -52,7 +52,7 @@ namespace RabbitMQAssignment.Controllers
                 // tìm đến những Sources có CategoryId == ?
                 var sources = db.Sources.Where(s => s.CategoryId == categoryId).ToList();
 
-                if (sources.Count != 0)
+                if (sources != null || sources.Count != 0)
                 {
                     foreach (var source in sources)
                     {
@@ -70,9 +70,9 @@ namespace RabbitMQAssignment.Controllers
                     articles = articles.OrderBy(s => s.Title);
                     break;
             }
-            articles.Include(a => a.Source);
             int pageSize = 10;
             int pageNumber = (page ?? 1);
+            articles.Include(a => a.Source);
             return View(articles.ToPagedList(pageNumber, pageSize));
         }
 

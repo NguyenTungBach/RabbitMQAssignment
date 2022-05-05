@@ -9,7 +9,7 @@ namespace RabbitMQAssignment.Data
 {
     public class RabbitContext : DbContext
     {
-        public RabbitContext() : base("name=RabbitMQ_db")
+        public RabbitContext() : base("name=RabbitMQDbLocal")
         {
         }
 

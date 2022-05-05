@@ -98,10 +98,10 @@ F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\Rabb
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.CopyComplete
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.dll
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.pdb
-F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.AssemblyReference.cache
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.Migrations.IntitTable.resources
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.GenerateResource.cache
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.dll
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.Mvc.dll
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.xml
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.Mvc.xml
+F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.AssemblyReference.cache

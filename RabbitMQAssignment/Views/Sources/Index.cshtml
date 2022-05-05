@@ -1,4 +1,6 @@
-﻿@model IEnumerable<RabbitMQAssignment.Models.Source>
+﻿@*@model IEnumerable<RabbitMQAssignment.Models.Source>*@
+@model PagedList.IPagedList<RabbitMQAssignment.Models.Source>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -9,67 +11,105 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@using (Html.BeginForm("Index", "Sources", FormMethod.Get))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+
+    <div style="margin-bottom:10px">
+        Tìm theo danh mục
+        <select name="categoryId" id="categoryId">
+            <option value=-1>Chọn danh mục</option>
+            @foreach (var category in ViewBag.ListCategory)
+            {
+                if (category.Id == ViewBag.CurrentCategory)
+                {
+                    <option value=@category.Id selected>@category.Name</option>
+                }
+                else
+                {
+                    <option value=@category.Id>@category.Name</option>
+                }
+            }
+        </select>
+        @*<input type="submit" value="Search" id="findCategory" style="display:none" />*@
+    </div>
+}
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Category.Name)
+            @*@Html.DisplayNameFor(model => model.Category.Name)*@
+            CategoryName
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Url)
+            @*@Html.DisplayNameFor(model => model.Url)*@
+            @Html.ActionLink("Url", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SelectorUrl)
+            @*@Html.DisplayNameFor(model => model.SelectorUrl)*@
+            SelectorUrl
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SelectorTitle)
+            @*@Html.DisplayNameFor(model => model.SelectorTitle)*@
+            SelectorTitle
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SelectorDescription)
+            @*@Html.DisplayNameFor(model => model.SelectorDescription)*@
+            SelectorDescription
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SelectorContent)
+            @*@Html.DisplayNameFor(model => model.SelectorContent)*@
+            SelectorContent
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SelectorThumbnail)
+            @*@Html.DisplayNameFor(model => model.SelectorThumbnail)*@
+            SelectorThumbnail
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SelectorAuthor)
+            @*@Html.DisplayNameFor(model => model.SelectorAuthor)*@
+            SelectorAuthor
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectorUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectorTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectorDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectorContent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectorThumbnail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SelectorAuthor)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectorUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectorTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectorDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectorContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectorThumbnail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SelectorAuthor)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, categoryId = ViewBag.CurrentCategory }))
