@@ -71,8 +71,8 @@ namespace RabbitMQReceived.Repository
                     var command = new SqlCommand(InsertQuery, cnn);
                     command.Prepare();
                     command.Parameters.AddWithValue("@Url", article.Url);
-                    command.Parameters.AddWithValue("@Title", article.Title);
-                    command.Parameters.AddWithValue("@Description", article.Description);
+                    command.Parameters.AddWithValue("@Title", article.Title??"");
+                    command.Parameters.AddWithValue("@Description", article.Description??"");
                     command.Parameters.AddWithValue("@Content", article.Content);
                     command.Parameters.AddWithValue("@Thumbnail", article.Thumbnail);
                     command.Parameters.AddWithValue("@Author", article.Author ?? "");

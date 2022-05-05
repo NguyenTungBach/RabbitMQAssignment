@@ -149,7 +149,7 @@ namespace RabbitMQAssignment.Controllers
                     Console.OutputEncoding = System.Text.Encoding.UTF8;
                     var web = new HtmlWeb();
                     HtmlDocument doc = web.Load(sourceCheck.SubUrl);
-                    var title = doc.QuerySelector(sourceCheck.SelectorTitle).InnerText;
+                    var title = doc.QuerySelector(sourceCheck.SelectorTitle).InnerText?? "";
                     var description = doc.QuerySelector(sourceCheck.SelectorDescription).InnerText;
                     var imageNode = doc.QuerySelector(sourceCheck.SelectorThumbnail)?.Attributes["data-src"].Value;
                     var author = doc.QuerySelector(sourceCheck.SelectorAuthor)?.InnerText;

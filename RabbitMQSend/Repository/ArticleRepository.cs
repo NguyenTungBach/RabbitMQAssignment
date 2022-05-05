@@ -11,7 +11,7 @@ namespace RabbitMQSend.Repository
     class ArticleRepository : IArticleRepository
     {
         private string QueryAllArticle = "SELECT * FROM Articles";
-        private string QueryGetArticleByUrl = "SELECT * FROM Articles WHERE Url = @Url";
+        private string QueryGetArticleByUrl = "SELECT * FROM Articles WHERE Url = '@Url'";
         private string QueryTruncateArticle = "Truncate TABLE Articles";
 
         public List<Article> GetAll()

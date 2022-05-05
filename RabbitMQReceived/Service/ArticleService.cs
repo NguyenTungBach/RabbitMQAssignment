@@ -25,8 +25,8 @@ namespace RabbitMQReceived.Service
                 Console.OutputEncoding = System.Text.Encoding.UTF8;
                 var web = new HtmlWeb();
                 HtmlDocument doc = web.Load(eventQueue.Url);
-                var title = doc.QuerySelector(eventQueue.SelectorTitle).InnerText;
-                var description = doc.QuerySelector(eventQueue.SelectorDescrition).InnerText;
+                var title = doc.QuerySelector(eventQueue.SelectorTitle)?.InnerText;
+                var description = doc.QuerySelector(eventQueue.SelectorDescrition)?.InnerText;
                 var imageNode = doc.QuerySelector(eventQueue.SelectorThumbnail)?.Attributes["data-src"].Value;
                 var author = doc.QuerySelector(eventQueue.SelectorAuthor)?.InnerText;
                 string thumbnail = "";
@@ -36,7 +36,7 @@ namespace RabbitMQReceived.Service
                 }
                 else
                 {
-                    thumbnail = "";
+                    thumbnail = "https://mucinmanhtai.com/wp-content/themes/BH-WebChuan-032320/assets/images/default-thumbnail-400.jpg";
                 }
                 var contentNode = doc.QuerySelectorAll(eventQueue.SelectorContent);
                 StringBuilder contentBuilder = new StringBuilder();
