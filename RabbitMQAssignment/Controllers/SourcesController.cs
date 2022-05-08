@@ -9,6 +9,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using HtmlAgilityPack;
+using Newtonsoft.Json;
 using PagedList;
 using RabbitMQAssignment.Data;
 using RabbitMQAssignment.Models;
@@ -100,16 +101,16 @@ namespace RabbitMQAssignment.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult CheckLink(SourceCheck sourceCheck)
+        
+        public JsonResult CheckLink(string Url, string SelectorUrl)
         {
-            if (sourceCheck.Url != "" && sourceCheck.SelectorUrl != "")
+            if (Url != null && SelectorUrl !=null)
             {
                 try
                 {
                     var web = new HtmlWeb();
-                    HtmlDocument doc = web.Load(sourceCheck.Url);
-                    var nodeList = doc.QuerySelectorAll(sourceCheck.SelectorUrl); // tìm đến những thẻ a nằm trong h3 có class= title-news
+                    HtmlDocument doc = web.Load(Url);
+                    var nodeList = doc.QuerySelectorAll(SelectorUrl); // tìm đến những thẻ a nằm trong h3 có class= title-news
                     var setLinkSource = new HashSet<SourceCheck>(); // Đảm bảo link không giống nhau, nếu có sẽ bị ghi đè ở phần tử trước
 
                     foreach (var node in nodeList)
@@ -126,33 +127,42 @@ namespace RabbitMQAssignment.Controllers
 
                         setLinkSource.Add(sourceCheck1);
                     }
-  
-                    return PartialView("GetListSource", setLinkSource);
+
+                    return Json(new
+                    {
+                        items = setLinkSource,
+                    }, JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception e)
                 {
                     Debug.WriteLine("Error: " + e.Message);
-                    return PartialView("Fail");
+                    return Json(new
+                    {
+                        fail = "Fail",
+                    }, JsonRequestBehavior.AllowGet);
                 }
             }
-            return PartialView("Fail");
+            return Json(new
+            {
+                fail = "Fail",
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Preview(SourceCheck sourceCheck)
+        
+        public JsonResult Preview(string SubUrl, string SelectorTitle, string SelectorDescription, string SelectorContent, string SelectorThumbnail, string SelectorAuthor)
         {
-            if (sourceCheck.SubUrl != "" && sourceCheck.SelectorTitle != "" && sourceCheck.SelectorThumbnail != "" && sourceCheck.SelectorContent != "" && sourceCheck.SelectorDescription != "" && sourceCheck.SelectorAuthor != "")
+            if (SubUrl !=null && SelectorTitle != null && SelectorThumbnail != null && SelectorContent != null && SelectorDescription != null && SelectorAuthor != null)
             {
                 try
                 {
                     Console.OutputEncoding = System.Text.Encoding.UTF8;
                     var web = new HtmlWeb();
-                    HtmlDocument doc = web.Load(sourceCheck.SubUrl);
-                    var title = doc.QuerySelector(sourceCheck.SelectorTitle).InnerText?? "";
-                    var description = doc.QuerySelector(sourceCheck.SelectorDescription).InnerText;
-                    var imageNode = doc.QuerySelector(sourceCheck.SelectorThumbnail)?.Attributes["data-src"].Value;
-                    var author = doc.QuerySelector(sourceCheck.SelectorAuthor)?.InnerText;
+                    HtmlDocument doc = web.Load(SubUrl);
+                    var title = doc.QuerySelector(SelectorTitle).InnerText?? "";
+                    var description = doc.QuerySelector(SelectorDescription).InnerText;
+                    var imageNode = doc.QuerySelector(SelectorThumbnail)?.Attributes["data-src"].Value;
+                    var author = doc.QuerySelector(SelectorAuthor)?.InnerText;
                     string thumbnail = "";
                     if (imageNode != null)
                     {
@@ -162,7 +172,7 @@ namespace RabbitMQAssignment.Controllers
                     {
                         thumbnail = "";
                     }
-                    var contentNode = doc.QuerySelectorAll(sourceCheck.SelectorContent);
+                    var contentNode = doc.QuerySelectorAll(SelectorContent);
                     StringBuilder contentBuilder = new StringBuilder();
                     foreach (var content in contentNode)
                     {
@@ -178,15 +188,24 @@ namespace RabbitMQAssignment.Controllers
                         Author = author,
                     };
 
-                    return PartialView("Preview", article);
+                    return Json(new
+                    {
+                        item = article,
+                    }, JsonRequestBehavior.AllowGet); ;
                 }
                 catch (Exception e)
                 {
                     Debug.WriteLine("Error: " + e.Message);
-                    return PartialView("Fail");
+                    return Json(new
+                    {
+                        fail = "Fail",
+                    }, JsonRequestBehavior.AllowGet);
                 }
             }
-            return PartialView("Fail");
+            return Json(new
+            {
+                fail = "Fail",
+            }, JsonRequestBehavior.AllowGet);
         }
 
         // POST: Sources/Create

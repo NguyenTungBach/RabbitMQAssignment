@@ -6,7 +6,9 @@
 
 <h2>Create</h2>
 
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -16,7 +18,7 @@
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    
+
     <div class="form-group">
         @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -32,62 +34,83 @@
             @Html.ValidationMessageFor(model => model.SelectorUrl, "", new { @class = "text-danger" })
         </div>
     </div>
-    
-    <div class="form-group">
-        @Html.LabelFor(model => model.SelectorTitle, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SelectorTitle, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectorTitle, "", new { @class = "text-danger" })
+    <button type="button" class="btn btn-primary" data-toggle="modal" id="clickResultLinkModal" data-target=".bd-example-modal-lg" @*style="display:none"*@>Check Link</button>
+
+    <div id="check_article" style="display:none">
+        <div class="form-group">
+            <label class="control-label col-md-2" for="SubUrl">SubUrl</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="SubUrl" name="SubUrl" type="text" value="">
+                <span class="field-validation-valid text-danger" data-valmsg-for="SubUrl" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectorTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SelectorTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectorTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectorDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SelectorDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectorDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectorContent, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectorContent, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectorThumbnail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SelectorThumbnail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectorThumbnail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectorAuthor, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SelectorAuthor, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectorAuthor, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" id="clickResultArticleModal" data-target=".bd-example-modal-lg" @*style="display:none"*@>Check Article</button>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.SelectorDescription, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SelectorDescription, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectorDescription, "", new { @class = "text-danger" })
-        </div>
-    </div>
+</div>
+}
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.SelectorContent, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectorContent, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.SelectorThumbnail, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SelectorThumbnail, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectorThumbnail, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.SelectorAuthor, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SelectorAuthor, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectorAuthor, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.CategoryId, "CategoryId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" id="result_modal">
+            ...
         </div>
     </div>
 </div>
-}
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -96,4 +119,118 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     
+<script>
+        $(document).on("click", "#clickResultLinkModal", function (e) {
+                var Url = $('#Url').val();
+                var SelectorUrl = $('#SelectorUrl').val();
+
+                let data = {
+                    Url: Url,
+                    SelectorUrl: SelectorUrl
+                }
+                $.ajax({
+                    url: "/Sources/CheckLink",
+                    type: 'POST',
+                    data: data,
+                    success: function (data) {
+                        //var getData = JSON.parse(data);
+                        //console.log("console log thành công: ", JSON.parse(data));
+                        console.log("console log thành công check: ", data);
+                        console.log("data check: ", data.fail);
+                        var contentHTML = ``;
+                        if (data.fail != null) {
+                            contentHTML = `<h4>${data.fail}</h4>`
+                        } else {
+                            data.items.forEach(element => {
+                                contentHTML += `<h4>${element.Url}</h4>`
+                            })
+                        }
+
+                        $('#result_modal').html(contentHTML);
+                        $('#check_article').css("display", "block");
+                    },
+                    error: function (request, error) {
+                        console.log("Request: " + JSON.parse(request));
+                        // console.log("Error: " + JSON.parse(error));
+                    }
+                });
+            })
+
+        $(document).on("click", "#clickResultArticleModal", function (e) {
+            var SubUrl = $('#SubUrl').val();
+            var SelectorTitle = $('#SelectorTitle').val();
+            var SelectorDescription = $('#SelectorDescription').val();
+            var SelectorContent = $('#SelectorContent').val();
+            var SelectorThumbnail = $('#SelectorThumbnail').val();
+            var SelectorAuthor = $('#SelectorAuthor').val();
+
+            let data = {
+                SubUrl: SubUrl,
+                SelectorTitle: SelectorTitle,
+                SelectorDescription: SelectorDescription,
+                SelectorContent: SelectorContent,
+                SelectorThumbnail: SelectorThumbnail,
+                SelectorAuthor: SelectorAuthor,
+            }
+            $.ajax({
+                url: "/Sources/Preview",
+                type: 'POST',
+                data: data,
+                success: function (data) {
+                    //var getData = JSON.parse(data);
+                    //console.log("console log thành công: ", JSON.parse(data));
+                    console.log("console log thành công check: ", data);
+                    console.log("data check: ", data.fail);
+                    var contentHTML = ``;
+                    if (data.fail != null) {
+                        contentHTML = `<h4>${data.fail}</h4>`
+                    } else {
+                        var checkArticle = data.item;
+                        contentHTML += `
+                        <div>
+                        <h3>
+                            Tiêu đề:
+                        </h3>
+                        ${checkArticle.Title}
+                    </div>
+                    <div>
+                        <h3>
+                            Mô tả:
+                        </h3>
+                        ${checkArticle.Description}
+                    </div>
+
+                    <div>
+                        <h3>
+                            Ảnh:
+                        </h3>
+                        <img src="${checkArticle.Thumbnail}"/>
+                    </div>
+
+                    <div>
+                        <h3>
+                            Nội dung:
+                        </h3>
+                        ${checkArticle.Content}
+                    </div>
+
+                    <div>
+                        <h3>
+                            Tác giả:
+                        </h3>
+                        ${checkArticle.Author}
+                    </div>
+                    `
+                    }
+
+                    $('#result_modal').html(contentHTML);
+                },
+                error: function (request, error) {
+                    console.log("Request: " + JSON.parse(request));
+                    // console.log("Error: " + JSON.parse(error));
+                }
+            });
+        })
+
+</script>
 }
