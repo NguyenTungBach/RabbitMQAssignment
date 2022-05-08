@@ -112,3 +112,4 @@ F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\Nest.xml
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\System.Diagnostics.DiagnosticSource.xml
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.Migrations.InitTable.resources
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.GenerateResource.cache
+F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.AssemblyReference.cache
