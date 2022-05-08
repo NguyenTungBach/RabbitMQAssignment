@@ -5,5 +5,11 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>RabbitMQSend</ActiveDebugProfile>
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
+  <ItemGroup>
+    <None Update="FodyWeavers.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
 </Project>

@@ -102,7 +102,6 @@ F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.Mvc.dll
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.xml
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\PagedList.Mvc.xml
-F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\obj\Debug\RabbitMQAssignment.csproj.AssemblyReference.cache
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\Elasticsearch.Net.dll
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\Nest.dll
 F:\HocWeb\EAD\BT Webservice\RabbitMQAssignment\RabbitMQAssignment\bin\System.Diagnostics.DiagnosticSource.dll
