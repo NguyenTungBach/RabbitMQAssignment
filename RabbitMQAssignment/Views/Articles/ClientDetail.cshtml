@@ -6484,7 +6484,7 @@
                                     <a class='mobile-menu-toggle' href='#' role='button' title='Menu'></a>
                                     <div class='main-logo section' id='main-logo' name='Header Logo'>
                                         <div class='widget Image' data-version='2' id='Image50'>
-                                            <a class='logo-img' href='https://localhost:44385/Articles/ClientIndex' rel='home'>
+                                            <a class='logo-img' href='/Articles/ClientIndex' rel='home'>
                                                 <img alt='Magspot - Blogger Template' data-dark-src='https://1.bp.blogspot.com/-EG9_OzrmI9Q/YTtnl8J2U0I/AAAAAAAAAfI/Vta2ee6-b4UAX7DocjFIJCFe8QVL-dxvQCLcBGAsYHQ/dark-logo.png' data-src='https://1.bp.blogspot.com/-qk-KYK0bNHs/YTtnqLmlGcI/AAAAAAAAAfM/QHXtzMxhl7kLAGjfMOM8E73Th_TZsnOJgCLcBGAsYHQ/s320/logo.png' height='80' src='https://1.bp.blogspot.com/-qk-KYK0bNHs/YTtnqLmlGcI/AAAAAAAAAfM/QHXtzMxhl7kLAGjfMOM8E73Th_TZsnOJgCLcBGAsYHQ/s320/logo.png' title='Magspot - Blogger Template' width='320'>
                                                 </img>
                                             </a>
@@ -6495,7 +6495,7 @@
                                             <ul class='main-nav' id='main-nav'>
                                                 @foreach (var category in ViewBag.ListCategory)
                                                 {
-                                                    <li id='item-0'><a href='https://localhost:44385/Articles/ClientCategory/@category.Id'>@category.Name</a></li>
+                                                    <li id='item-0'><a href='/Articles/ClientCategory/@category.Id'>@category.Name</a></li>
                                                 }
 
 
@@ -6590,7 +6590,7 @@
                                         @foreach (var category in ViewBag.ListCategory)
                                         {
                                             <li>
-                                                <a class='label-name has-count' href='https://localhost:44385/Articles/ClientCategory/@category.Id'>
+                                                <a class='label-name has-count' href='/Articles/ClientCategory/@category.Id'>
                                                     @category.Name
 
                                                 </a>

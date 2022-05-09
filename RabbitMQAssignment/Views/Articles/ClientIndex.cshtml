@@ -5871,7 +5871,7 @@
                                     <a class='mobile-menu-toggle' href='#' role='button' title='Menu'></a>
                                     <div class='main-logo section' id='main-logo' name='Header Logo'>
                                         <div class='widget Image' data-version='2' id='Image50'>
-                                            <a class='logo-img' href='https://localhost:44385/Articles/ClientIndex' rel='home'>
+                                            <a class='logo-img' href='/Articles/ClientIndex' rel='home'>
                                                 <img alt='Magspot - Blogger Template' data-dark-src='https://1.bp.blogspot.com/-EG9_OzrmI9Q/YTtnl8J2U0I/AAAAAAAAAfI/Vta2ee6-b4UAX7DocjFIJCFe8QVL-dxvQCLcBGAsYHQ/dark-logo.png' data-src='https://1.bp.blogspot.com/-qk-KYK0bNHs/YTtnqLmlGcI/AAAAAAAAAfM/QHXtzMxhl7kLAGjfMOM8E73Th_TZsnOJgCLcBGAsYHQ/s320/logo.png' height='80' src='https://1.bp.blogspot.com/-qk-KYK0bNHs/YTtnqLmlGcI/AAAAAAAAAfM/QHXtzMxhl7kLAGjfMOM8E73Th_TZsnOJgCLcBGAsYHQ/s320/logo.png' title='Magspot - Blogger Template' width='320'>
                                                 </img>
                                                 <h1 id='h1-off'>Magspot - Blogger Template</h1>
@@ -5883,7 +5883,7 @@
                                             <ul class='main-nav' id='main-nav'>
                                                 @foreach (var category in ViewBag.ListCategory)
                                                 {
-                                                    <li id='item-0'><a href='https://localhost:44385/Articles/ClientCategory/@category.Id'>@category.Name</a></li>
+                                                    <li id='item-0'><a href='/Articles/ClientCategory/@category.Id'>@category.Name</a></li>
                                                 }
                                             </ul>
                                         </div>
@@ -5906,7 +5906,7 @@
                                                 @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "search-input", @id = "css-search" })
 
                                                 <button style="color:red;" type="submit" value="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                                                <a href="https://localhost:44385/Articles/ClientIndex"><i class="fa-solid fa-x"></i></a>
+                                                <a href="/Articles/ClientIndex"><i class="fa-solid fa-x"></i></a>
                                             </p>
                                             <!--<div style="margin-bottom:10px">
                                             Tìm theo danh mục
@@ -5943,7 +5943,7 @@
                         {
                             <div class="featured-grid">
                                 <div class="featured-item cs item-1">
-                                    <a class="entry-inner" href="https://localhost:44385/Articles/ClientDetail/@item.Id" title="Apple Watch Series 5 is the Best One Yet By Consumer"><span class="entry-image-wrap before-mask is-image"><span class="entry-image pbt-lazy" data-src="@item.Thumbnail" style="background-image:url(https://1.bp.blogspot.com/-7vg-bSX8xLI/YQfz0dY-yoI/AAAAAAAAAWs/t91KpNFtLSYrInDU5jWlbeotvsEyrrsuwCLcBGAsYHQ/w567-h220-p-k-no-nu/pbt65.jpg)"></span></span><div class="entry-header entry-info"><span class="entry-category">New</span><h2 class="entry-title">@item.Title</h2><div class="entry-meta"><span class="entry-time mi"><time class="published" datetime="2021-08-02T06:32:00.000-07:00">August 02, 2021</time></span></div></div></a>
+                                    <a class="entry-inner" href="/Articles/ClientDetail/@item.Id" title="Apple Watch Series 5 is the Best One Yet By Consumer"><span class="entry-image-wrap before-mask is-image"><span class="entry-image pbt-lazy" data-src="@item.Thumbnail" style="background-image:url(https://1.bp.blogspot.com/-7vg-bSX8xLI/YQfz0dY-yoI/AAAAAAAAAWs/t91KpNFtLSYrInDU5jWlbeotvsEyrrsuwCLcBGAsYHQ/w567-h220-p-k-no-nu/pbt65.jpg)"></span></span><div class="entry-header entry-info"><span class="entry-category">New</span><h2 class="entry-title">@item.Title</h2><div class="entry-meta"><span class="entry-time mi"><time class="published" datetime="2021-08-02T06:32:00.000-07:00">August 02, 2021</time></span></div></div></a>
                                 </div>
                             </div>
                         }
@@ -5963,12 +5963,12 @@
                                 @foreach (var item in Model)
                                 {
                                     <article class='index-post list1-item hentry post-0'>
-                                        <a class='entry-image-wrap is-image' href="https://localhost:44385/Articles/ClientDetail/@item.Id" title='11 of Best Laptops Evaluated Based on Budget'>
+                                        <a class='entry-image-wrap is-image' href="/Articles/ClientDetail/@item.Id" title='11 of Best Laptops Evaluated Based on Budget'>
                                             <img src="@item.Thumbnail" alt="Alternate Text" />
                                             <span class='entry-category'>New</span>
                                         </a>
                                         <div class='entry-header'>
-                                            <h2 class='entry-title'><a href='https://localhost:44385/Articles/ClientDetail/@item.Id' rel='bookmark' title='11 of Best Laptops Evaluated Based on Budget'>@item.Title</a></h2>
+                                            <h2 class='entry-title'><a href='/Articles/ClientDetail/@item.Id' rel='bookmark' title='11 of Best Laptops Evaluated Based on Budget'>@item.Title</a></h2>
                                             <p class='entry-excerpt excerpt'>@item.Description</p>
                                             <div class='entry-meta'>
                                                 <span class='entry-author mi'><span class='by sp'>by</span><span class='author-name'>Nguyễn Tùng Bách</span></span>
@@ -6015,7 +6015,7 @@
                                         </span>
                                     </a>
                                     <div class='entry-header'>
-                                        <h2 class='entry-title'><a href='https://localhost:44385/Articles/ClientDetail/@item.Id' title='Apple Watch Series 5 is the Best One Yet By Consumer'>@item.Title</a></h2>
+                                        <h2 class='entry-title'><a href='/Articles/ClientDetail/@item.Id' title='Apple Watch Series 5 is the Best One Yet By Consumer'>@item.Title</a></h2>
                                         <div class='entry-meta'><time class='published' datetime='2021-08-02T06:32:00-07:00'>August 02, 2021</time></div>
                                     </div>
                                 </div>

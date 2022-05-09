@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/testwebserverclientdbserver/databases/RabbitMQAssignment_db",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/rabbitassignment/databases/RabbitAssignment",
       "type": "mssql.azure",
-      "connectionId": "RabbitMQ_db",
+      "connectionId": "RabbitMQDB",
       "secretStore": "AzureAppSettings"
     }
   }

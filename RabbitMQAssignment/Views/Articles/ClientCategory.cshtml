@@ -6483,7 +6483,7 @@
                                     <a class='mobile-menu-toggle' href='#' role='button' title='Menu'></a>
                                     <div class='main-logo section' id='main-logo' name='Header Logo'>
                                         <div class='widget Image' data-version='2' id='Image50'>
-                                            <a class='logo-img' href='https://localhost:44385/Articles/ClientIndex' rel='home'>
+                                            <a class='logo-img' href='/Articles/ClientIndex' rel='home'>
                                                 <img alt='Magspot - Blogger Template' data-dark-src='https://1.bp.blogspot.com/-EG9_OzrmI9Q/YTtnl8J2U0I/AAAAAAAAAfI/Vta2ee6-b4UAX7DocjFIJCFe8QVL-dxvQCLcBGAsYHQ/dark-logo.png' data-src='https://1.bp.blogspot.com/-qk-KYK0bNHs/YTtnqLmlGcI/AAAAAAAAAfM/QHXtzMxhl7kLAGjfMOM8E73Th_TZsnOJgCLcBGAsYHQ/s320/logo.png' height='80' src='https://1.bp.blogspot.com/-qk-KYK0bNHs/YTtnqLmlGcI/AAAAAAAAAfM/QHXtzMxhl7kLAGjfMOM8E73Th_TZsnOJgCLcBGAsYHQ/s320/logo.png' title='Magspot - Blogger Template' width='320'>
                                                 </img>
                                                 <h1 id='h1-off'>Magspot - Blogger Template</h1>
@@ -6495,7 +6495,7 @@
                                             <ul class='main-nav' id='main-nav'>
                                                 @foreach (var category in ViewBag.ListCategory)
                                                 {
-                                                    <li id='item-0'><a href='https://localhost:44385/Articles/ClientCategory/@category.Id'>@category.Name</a></li>
+                                                    <li id='item-0'><a href='/Articles/ClientCategory/@category.Id'>@category.Name</a></li>
                                                 }
 
 
@@ -6529,7 +6529,7 @@
                                             <span class='entry-category'>@ViewBag.Category.Name</span>
                                         </a>
                                         <div class='entry-header'>
-                                            <h2 class='entry-title'><a href='https://localhost:44385/Articles/ClientDetail/@item.Id' rel='bookmark' title='How to Get COVID-19 Related Alerts on Your Phone'>@item.Title</a></h2>
+                                            <h2 class='entry-title'><a href='/Articles/ClientDetail/@item.Id' rel='bookmark' title='How to Get COVID-19 Related Alerts on Your Phone'>@item.Title</a></h2>
                                             <p class='entry-excerpt excerpt'>@item.Description&#8230;</p>
                                             <div class='entry-meta'>
                                                 <span class='entry-author mi'><span class='by sp'>by</span><span class='author-name'>Nguyễn Tùng Bách</span></span>
@@ -6572,11 +6572,11 @@
                                 @foreach (var item in ViewBag.ListArticles)
                                 {
                                     <div class='side-item item-1'>
-                                        <a class='entry-image-wrap sz-1 is-image' href='https://localhost:44385/Articles/ClientDetail/@item.Id' title='Apple Watch Series 5 is the Best One Yet By Consumer'>
+                                        <a class='entry-image-wrap sz-1 is-image' href='/Articles/ClientDetail/@item.Id' title='Apple Watch Series 5 is the Best One Yet By Consumer'>
                                             <span class='entry-image' data-src='@item.Thumbnail'></span>
                                         </a>
                                         <div class='entry-header'>
-                                            <h2 class='entry-title'><a href='https://localhost:44385/Articles/ClientDetail/@item.Id' title='Apple Watch Series 5 is the Best One Yet By Consumer'>@item.Title</a></h2>
+                                            <h2 class='entry-title'><a href='/Articles/ClientDetail/@item.Id' title='Apple Watch Series 5 is the Best One Yet By Consumer'>@item.Title</a></h2>
                                             <div class='entry-meta'><time class='published' datetime='2021-08-02T06:32:00-07:00'>August 02, 2021</time></div>
                                         </div>
                                     </div>
